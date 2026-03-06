@@ -8,484 +8,136 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #f5f0e8;
-      --parchment: #ede5d5;
-      --terracotta: #b85c38;
-      --rust: #8c3a1e;
-      --ink: #1c1410;
-      --muted: #7a6e62;
-      --sage: #5a6b52;
+      --cream: #f5f0e8; --parchment: #ede5d5; --terracotta: #b85c38;
+      --rust: #8c3a1e; --ink: #1c1410; --muted: #7a6e62;
       --border: rgba(184, 92, 56, 0.25);
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--ink); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
-    body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      background: var(--cream);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      color: var(--ink);
-      text-decoration: none;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color 0.2s;
-    }
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
     .nav-links a:hover { color: var(--terracotta); }
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 56px;
-    }
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 5rem 4rem 5rem 6rem;
-      position: relative;
-    }
-    .hero-left::before {
-      content: '';
-      position: absolute;
-      top: 15%;
-      left: 3rem;
-      width: 1px;
-      height: 60%;
-      background: var(--border);
-    }
-    .hero-tag {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 1.5rem;
-    }
-    .hero-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 5vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-    .hero-name em {
-      font-style: italic;
-      color: var(--terracotta);
-    }
-    .hero-desc {
-      font-size: 0.95rem;
-      color: var(--muted);
-      max-width: 360px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-block;
-      padding: 0.75rem 1.75rem;
-      background: var(--terracotta);
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: background 0.2s;
-    }
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 56px; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 6rem; position: relative; }
+    .hero-left::before { content: ''; position: absolute; top: 15%; left: 3rem; width: 1px; height: 60%; background: var(--border); }
+    .hero-tag { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1.5rem; }
+    .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 1.5rem; }
+    .hero-name em { font-style: italic; color: var(--terracotta); }
+    .hero-desc { font-size: 0.95rem; color: var(--muted); max-width: 360px; line-height: 1.7; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-block; padding: 0.75rem 1.75rem; background: var(--terracotta); color: #fff; text-decoration: none; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s; }
     .btn-primary:hover { background: var(--rust); }
-    .btn-ghost {
-      display: inline-block;
-      padding: 0.75rem 1.75rem;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: border-color 0.2s, color 0.2s;
-    }
+    .btn-ghost { display: inline-block; padding: 0.75rem 1.75rem; border: 1px solid var(--border); color: var(--muted); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; }
     .btn-ghost:hover { border-color: var(--terracotta); color: var(--terracotta); }
+    .hero-right { background: var(--parchment); display: flex; align-items: center; justify-content: center; padding: 4rem 3rem; overflow: hidden; position: relative; }
+    .hero-right::before { content: '"'; position: absolute; top: 3rem; left: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 12rem; color: var(--border); line-height: 1; }
+    .hero-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; font-weight: 300; line-height: 1.4; color: var(--ink); text-align: center; position: relative; }
+    .hero-quote-attr { margin-top: 1rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: center; }
 
-    .hero-right {
-      background: var(--parchment);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 4rem 3rem 0;
-      overflow: hidden;
-      position: relative;
-    }
-    .hero-right::before {
-      content: '"';
-      position: absolute;
-      top: 3rem;
-      left: 2rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 12rem;
-      color: var(--border);
-      line-height: 1;
-    }
-    .hero-quote-block {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      padding: 2rem;
-    }
-    .hero-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-style: italic;
-      font-weight: 300;
-      line-height: 1.4;
-      color: var(--ink);
-    }
-    .hero-quote-attr {
-      margin-top: 1rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+    section { padding: 6rem; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--ink); margin-bottom: 3rem; }
+    .divider { width: 100%; height: 1px; background: var(--border); }
 
-    /* SECTION BASE */
-    section { padding: 6rem 6rem; }
-    .section-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 0.75rem;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 3.2rem);
-      font-weight: 300;
-      line-height: 1.15;
-      color: var(--ink);
-      margin-bottom: 3rem;
-    }
-
-    /* DIVIDER */
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ESCRITURA */
+    /* TARJETAS EXPANDIBLES */
     #escritura { background: var(--cream); }
-    .escritura-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0;
-      border: 1px solid var(--border);
-    }
-    .escritura-card {
-      padding: 2.5rem;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
+    .escritura-grid { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid var(--border); }
+    .escritura-card { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .escritura-card:nth-child(even) { border-right: none; }
     .escritura-card:nth-child(3), .escritura-card:nth-child(4) { border-bottom: none; }
-    .escritura-card:hover { background: var(--parchment); }
-    .card-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 300;
-      color: var(--border);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-    .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-    }
-    .card-desc {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .card-arrow {
-      position: absolute;
-      bottom: 2rem;
-      right: 2rem;
-      font-size: 1.2rem;
-      color: var(--terracotta);
-      opacity: 0;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .escritura-card:hover .card-arrow { opacity: 1; transform: translateX(4px); }
 
-    /* ABOUT */
+    .card-header { padding: 2.5rem; cursor: pointer; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; transition: background 0.2s; }
+    .card-header:hover { background: var(--parchment); }
+    .card-header-left { flex: 1; }
+    .card-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--border); line-height: 1; margin-bottom: 1rem; }
+    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--ink); margin-bottom: 0.5rem; }
+    .card-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .card-toggle { font-size: 1.4rem; color: var(--terracotta); transition: transform 0.3s; flex-shrink: 0; line-height: 1; margin-top: 0.5rem; }
+    .escritura-card.open .card-toggle { transform: rotate(45deg); }
+
+    .card-escritos { max-height: 0; overflow: hidden; transition: max-height 0.45s ease; }
+    .escritura-card.open .card-escritos { max-height: 1200px; border-top: 1px solid var(--border); }
+    .card-escritos-inner { padding: 1.5rem 2.5rem 2rem; }
+
+    .card-escrito-item { padding: 1rem 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: padding-left 0.2s; }
+    .card-escrito-item:last-child { border-bottom: none; }
+    .card-escrito-item:hover { padding-left: 0.5rem; }
+    .card-escrito-titulo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--ink); }
+    .card-escrito-fecha { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
+    .card-escritos-vacio { padding: 1.5rem 0; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--muted); }
+
+    /* MODAL */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(28,20,16,0.75); z-index: 200; align-items: center; justify-content: center; padding: 2rem; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: var(--cream); max-width: 680px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 3rem; position: relative; }
+    .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--muted); }
+    .modal-close:hover { color: var(--terracotta); }
+    .modal-cat { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.75rem; }
+    .modal-titulo { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.2; }
+    .modal-fecha { font-size: 0.75rem; color: var(--muted); margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    .modal-contenido { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--ink); line-height: 1.9; white-space: pre-wrap; }
+
+    /* SOBRE MÍ */
     #sobre-mi { background: var(--ink); color: var(--cream); padding: 7rem 6rem; }
     #sobre-mi .section-label { color: var(--terracotta); }
     #sobre-mi .section-title { color: var(--cream); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-    .about-text p {
-      font-size: 1rem;
-      color: rgba(245, 240, 232, 0.8);
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
-    }
-    .about-text p:last-child { margin-bottom: 0; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
+    .about-text p { font-size: 1rem; color: rgba(245,240,232,0.8); line-height: 1.8; margin-bottom: 1.25rem; }
     .about-sidebar { display: flex; flex-direction: column; gap: 2rem; }
-    .sidebar-block {
-      border-top: 1px solid rgba(245, 240, 232, 0.15);
-      padding-top: 1.25rem;
-    }
-    .sidebar-block h4 {
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 0.75rem;
-    }
+    .sidebar-block { border-top: 1px solid rgba(245,240,232,0.15); padding-top: 1.25rem; }
+    .sidebar-block h4 { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.75rem; }
     .sidebar-block ul { list-style: none; }
-    .sidebar-block li {
-      font-size: 0.88rem;
-      color: rgba(245, 240, 232, 0.7);
-      padding: 0.2rem 0;
-    }
+    .sidebar-block li { font-size: 0.88rem; color: rgba(245,240,232,0.7); padding: 0.2rem 0; }
     .sidebar-block li::before { content: '— '; color: var(--terracotta); }
-    .lang-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.88rem;
-      color: rgba(245, 240, 232, 0.7);
-      padding: 0.25rem 0;
-      border-bottom: 1px solid rgba(245,240,232,0.08);
-    }
-    .lang-row span:first-child { font-weight: 500; color: rgba(245,240,232,0.9); }
 
     /* TRAYECTORIA */
     #trayectoria { background: var(--parchment); }
-    .timeline {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-bottom: 3rem;
-    }
-    .tl-item {
-      background: var(--parchment);
-      padding: 1.75rem 2rem;
-      position: relative;
-    }
-    .tl-item::before {
-      content: '';
-      position: absolute;
-      left: 2rem;
-      top: 0;
-      height: 2px;
-      width: 2rem;
-      background: var(--terracotta);
-    }
-    .tl-year {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 0.3rem;
-    }
-    .tl-role {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 0.2rem;
-    }
-    .tl-place {
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-    .tray-note {
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-style: italic;
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    /* FORMACIÓN */
+    .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 3rem; }
+    .tl-item { background: var(--parchment); padding: 1.75rem 2rem; position: relative; }
+    .tl-item::before { content: ''; position: absolute; left: 2rem; top: 0; height: 2px; width: 2rem; background: var(--terracotta); }
+    .tl-year { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.3rem; }
+    .tl-role { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); margin-bottom: 0.2rem; }
+    .tl-place { font-size: 0.82rem; color: var(--muted); }
     .form-section { margin-top: 4rem; }
-    .form-section h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.75rem;
-    }
-    .form-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .form-tag {
-      padding: 0.4rem 0.9rem;
-      border: 1px solid var(--border);
-      font-size: 0.78rem;
-      color: var(--muted);
-      background: var(--cream);
-    }
-    .form-tag.highlight {
-      background: var(--terracotta);
-      color: #fff;
-      border-color: var(--terracotta);
-    }
+    .form-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--ink); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
+    .form-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .form-tag { padding: 0.4rem 0.9rem; border: 1px solid var(--border); font-size: 0.78rem; color: var(--muted); background: var(--cream); }
+    .form-tag.highlight { background: var(--terracotta); color: #fff; border-color: var(--terracotta); }
 
     /* CONTACTO */
     #contacto { background: var(--cream); }
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .contact-left .big-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 4vw, 4.5rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .contact-left .big-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--ink); margin-bottom: 1.5rem; }
     .contact-left .big-text em { font-style: italic; color: var(--terracotta); }
-    .contact-left p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 380px;
-    }
+    .contact-left p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; max-width: 380px; }
     .contact-right { display: flex; flex-direction: column; gap: 1.5rem; }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.25rem 1.5rem;
-      border: 1px solid var(--border);
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .contact-item:hover {
-      border-color: var(--terracotta);
-      background: var(--parchment);
-    }
-    .contact-icon {
-      font-size: 1.2rem;
-      width: 2rem;
-      text-align: center;
-      color: var(--terracotta);
-    }
-    .contact-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.15rem;
-    }
-    .contact-value {
-      font-size: 0.92rem;
-      color: var(--ink);
-    }
+    .contact-item { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem; border: 1px solid var(--border); text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .contact-item:hover { border-color: var(--terracotta); background: var(--parchment); }
+    .contact-icon { font-size: 1.2rem; width: 2rem; text-align: center; color: var(--terracotta); }
+    .contact-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem; }
+    .contact-value { font-size: 0.92rem; color: var(--ink); }
 
-    /* FOOTER */
-    footer {
-      background: var(--ink);
-      padding: 2rem 6rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    footer p {
-      font-size: 0.75rem;
-      color: rgba(245,240,232,0.4);
-      letter-spacing: 0.05em;
-    }
-    .footer-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-style: italic;
-      color: rgba(245,240,232,0.6);
-    }
+    footer { background: var(--ink); padding: 2rem 6rem; display: flex; align-items: center; justify-content: space-between; }
+    footer p { font-size: 0.75rem; color: rgba(245,240,232,0.4); letter-spacing: 0.05em; }
+    .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: rgba(245,240,232,0.6); cursor: default; user-select: none; }
 
-    /* ANIMATIONS */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* MOBILE */
     @media (max-width: 768px) {
       section { padding: 4rem 1.5rem; }
       nav { padding: 0 1.5rem; }
       .nav-links { gap: 1rem; }
-      .nav-links a { font-size: 0.68rem; }
+      .nav-links a { font-size: 0.65rem; }
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-left { padding: 4rem 1.5rem; }
       .hero-left::before { display: none; }
-      .hero-right { min-height: 280px; padding: 2rem; }
+      .hero-right { min-height: 260px; padding: 3rem 1.5rem; }
       .escritura-grid { grid-template-columns: 1fr; }
       .escritura-card:nth-child(even) { border-right: 1px solid var(--border); }
       .escritura-card:nth-child(3) { border-bottom: 1px solid var(--border); }
@@ -499,7 +151,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Candela M. de Vidales i Lluna</a>
   <ul class="nav-links">
@@ -510,28 +161,19 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <p class="hero-tag">Escritora · Trabajadora Social · Valencia</p>
-    <h1 class="hero-name">
-      Candela<br>
-      <em>Martín de</em><br>
-      Vidales i Lluna
-    </h1>
-    <p class="hero-desc">
-      Escribo para entender el mundo y para que otros también puedan hacerlo. Poesía, relatos, reseñas de libros y artículos sobre todo lo que me importa: las personas, la justicia y la literatura.
-    </p>
+    <h1 class="hero-name">Candela<br><em>Martín de</em><br>Vidales i Lluna</h1>
+    <p class="hero-desc">Escribo para entender el mundo y para que otros también puedan hacerlo. Poesía, relatos, reseñas de libros y artículos sobre todo lo que me importa: las personas, la justicia y la literatura.</p>
     <div class="hero-actions">
       <a href="#escritura" class="btn-primary">Leer mis escritos</a>
       <a href="#contacto" class="btn-ghost">Contactar</a>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-quote-block">
-      <p class="hero-quote">
-        "Las palabras son la forma<br>más suave de cambiar el mundo."
-      </p>
+    <div>
+      <p class="hero-quote">"Las palabras son la forma<br>más suave de cambiar el mundo."</p>
       <p class="hero-quote-attr">— Candela M. de Vidales i Lluna</p>
     </div>
   </div>
@@ -539,58 +181,91 @@
 
 <div class="divider"></div>
 
-<!-- ESCRITURA -->
 <section id="escritura">
   <p class="section-label fade-in">Mi escritura</p>
   <h2 class="section-title fade-in">Lo que creo</h2>
   <div class="escritura-grid">
-    <div class="escritura-card fade-in">
-      <div class="card-num">01</div>
-      <h3 class="card-title">Poesía</h3>
-      <p class="card-desc">Versos que nacen de la observación. La calle, el cuerpo, la memoria. Escribo poesía desde siempre, como una forma de hacer sitio a lo que no cabe en la prosa.</p>
-      <span class="card-arrow">→</span>
+
+    <div class="escritura-card fade-in" id="card-Poesia">
+      <div class="card-header" onclick="toggleCard('Poesia')">
+        <div class="card-header-left">
+          <div class="card-num">01</div>
+          <h3 class="card-title">Poesía</h3>
+          <p class="card-desc">Versos que nacen de la observación. La calle, el cuerpo, la memoria. Escribo poesía desde siempre, como una forma de hacer sitio a lo que no cabe en la prosa.</p>
+        </div>
+        <span class="card-toggle">+</span>
+      </div>
+      <div class="card-escritos" id="escritos-Poesia">
+        <div class="card-escritos-inner" id="lista-Poesia"></div>
+      </div>
     </div>
-    <div class="escritura-card fade-in">
-      <div class="card-num">02</div>
-      <h3 class="card-title">Relatos</h3>
-      <p class="card-desc">Historias cortas. Personajes que me visitan y necesitan que les cuente. Relatos sobre vínculos, silencios y esos momentos en que todo cambia sin hacer ruido.</p>
-      <span class="card-arrow">→</span>
+
+    <div class="escritura-card fade-in" id="card-Relato">
+      <div class="card-header" onclick="toggleCard('Relato')">
+        <div class="card-header-left">
+          <div class="card-num">02</div>
+          <h3 class="card-title">Relatos</h3>
+          <p class="card-desc">Historias cortas. Personajes que me visitan y necesitan que les cuente. Relatos sobre vínculos, silencios y esos momentos en que todo cambia sin hacer ruido.</p>
+        </div>
+        <span class="card-toggle">+</span>
+      </div>
+      <div class="card-escritos" id="escritos-Relato">
+        <div class="card-escritos-inner" id="lista-Relato"></div>
+      </div>
     </div>
-    <div class="escritura-card fade-in">
-      <div class="card-num">03</div>
-      <h3 class="card-title">Reseñas</h3>
-      <p class="card-desc">Leo mucho y necesito escribir sobre lo que leo. Reseñas honestas, sin spoilers gratuitos. Libros que me han removido, sorprendido o decepcionado, siempre con razones.</p>
-      <span class="card-arrow">→</span>
+
+    <div class="escritura-card fade-in" id="card-Resena">
+      <div class="card-header" onclick="toggleCard('Resena')">
+        <div class="card-header-left">
+          <div class="card-num">03</div>
+          <h3 class="card-title">Reseñas</h3>
+          <p class="card-desc">Leo mucho y necesito escribir sobre lo que leo. Reseñas honestas, sin spoilers gratuitos. Libros que me han removido, sorprendido o decepcionado, siempre con razones.</p>
+        </div>
+        <span class="card-toggle">+</span>
+      </div>
+      <div class="card-escritos" id="escritos-Resena">
+        <div class="card-escritos-inner" id="lista-Resena"></div>
+      </div>
     </div>
-    <div class="escritura-card fade-in">
-      <div class="card-num">04</div>
-      <h3 class="card-title">Artículos</h3>
-      <p class="card-desc">Próximamente. Quiero explorar la escritura de no ficción: trabajo social, feminismo, migración, cultura. Temas que vivo y que merecen ser contados con rigor y cuidado.</p>
-      <span class="card-arrow">→</span>
+
+    <div class="escritura-card fade-in" id="card-Articulo">
+      <div class="card-header" onclick="toggleCard('Articulo')">
+        <div class="card-header-left">
+          <div class="card-num">04</div>
+          <h3 class="card-title">Artículos</h3>
+          <p class="card-desc">Próximamente. Quiero explorar la escritura de no ficción: trabajo social, feminismo, migración, cultura. Temas que vivo y que merecen ser contados con rigor y cuidado.</p>
+        </div>
+        <span class="card-toggle">+</span>
+      </div>
+      <div class="card-escritos" id="escritos-Articulo">
+        <div class="card-escritos-inner" id="lista-Articulo"></div>
+      </div>
     </div>
+
   </div>
 </section>
 
+<div class="modal-overlay" id="modal-lectura" onclick="cerrarModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('modal-lectura').classList.remove('open');document.body.style.overflow=''">✕</button>
+    <div class="modal-cat" id="modal-cat"></div>
+    <h2 class="modal-titulo" id="modal-titulo"></h2>
+    <div class="modal-fecha" id="modal-fecha"></div>
+    <div class="modal-contenido" id="modal-contenido"></div>
+  </div>
+</div>
+
 <div class="divider"></div>
 
-<!-- SOBRE MÍ -->
 <section id="sobre-mi">
   <p class="section-label fade-in">Quién soy</p>
   <h2 class="section-title fade-in">Sobre mí</h2>
   <div class="about-grid">
     <div class="about-text fade-in">
-      <p>
-        Soy Candela, trabajadora social graduada por la Universitat de València (2020–2025), con una experiencia Erasmus en la Università degli Studi di Bari que me marcó profundamente. Vivo en Valencia, hablo valenciano como primera lengua e inglés e italiano a nivel medio.
-      </p>
-      <p>
-        Mi trabajo profesional se ha centrado en el área de inmigración, la atención a mujeres víctimas de violencia de género y la atención al cliente. He trabajado en entornos tan distintos como la Cruz Roja, una vivienda tutelada para mujeres o una aseguradora —y en todos he llevado la misma manera de estar: presente, organizada y con las antenas puestas.
-      </p>
-      <p>
-        La escritura no es un hobby separado: para mí, escribir es también una forma de hacer trabajo social. De dar voz, de documentar, de crear comunidad. Por eso esta web existe: para juntar las dos cosas que más me importan.
-      </p>
-      <p>
-        Soy voluntaria y formo parte actualmente de Círculos Amigos España. Antes lo fui en el Arca de Noé. Me gustan los proyectos en red, los equipos que se escuchan y las causas que merecen la pena.
-      </p>
+      <p>Soy Candela, trabajadora social graduada por la Universitat de València (2020–2025), con una experiencia Erasmus en la Università degli Studi di Bari que me marcó profundamente. Vivo en Valencia, hablo valenciano como primera lengua e inglés e italiano a nivel medio.</p>
+      <p>Mi trabajo profesional se ha centrado en el área de inmigración, la atención a mujeres víctimas de violencia de género y la atención al cliente. He trabajado en entornos tan distintos como la Cruz Roja, una vivienda tutelada para mujeres o una aseguradora —y en todos he llevado la misma manera de estar: presente, organizada y con las antenas puestas.</p>
+      <p>La escritura no es un hobby separado: para mí, escribir es también una forma de hacer trabajo social. De dar voz, de documentar, de crear comunidad. Por eso esta web existe: para juntar las dos cosas que más me importan.</p>
+      <p>Soy voluntaria y formo parte actualmente de Círculos Amigos España. Antes lo fui en el Arca de Noé. Me gustan los proyectos en red, los equipos que se escuchan y las causas que merecen la pena.</p>
     </div>
     <div class="about-sidebar fade-in">
       <div class="sidebar-block">
@@ -606,7 +281,6 @@
           <li>Trabajo en red y construcción de comunidad</li>
         </ul>
       </div>
-
       <div class="sidebar-block">
         <h4>Intereses</h4>
         <ul>
@@ -623,64 +297,21 @@
 
 <div class="divider"></div>
 
-<!-- TRAYECTORIA -->
 <section id="trayectoria">
   <p class="section-label fade-in">CV</p>
   <h2 class="section-title fade-in">Trayectoria</h2>
-
   <div class="timeline fade-in">
-    <div class="tl-item">
-      <div class="tl-year">2025</div>
-      <div class="tl-role">Agente de atención al cliente y administrativa</div>
-      <div class="tl-place">SegurCaixa Adeslas</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2025</div>
-      <div class="tl-role">Dependienta de tienda</div>
-      <div class="tl-place">Lefties</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2025</div>
-      <div class="tl-role">Grabación de datos ADGG0508</div>
-      <div class="tl-place">Grupo S-Tudia.com · 650 horas</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2024</div>
-      <div class="tl-role">Promotora Empresa Energética</div>
-      <div class="tl-place">From Zero Business</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2024 · Prácticas</div>
-      <div class="tl-role">Vivienda Tutelada — Violencia de Género</div>
-      <div class="tl-place">Tyrius · Amas de Casa y Consumidores</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2022–2024</div>
-      <div class="tl-role">Comercial Fund-raising (Sorteo del Oro)</div>
-      <div class="tl-place">Cruz Roja Española</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2023</div>
-      <div class="tl-role">Promotora</div>
-      <div class="tl-place">Smartbox</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2022 · Prácticas</div>
-      <div class="tl-role">Área de inmigración</div>
-      <div class="tl-place">APIP-ACAM</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2022</div>
-      <div class="tl-role">Atención al cliente</div>
-      <div class="tl-place">Marktel</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2020–2025</div>
-      <div class="tl-role">Grado en Trabajo Social</div>
-      <div class="tl-place">Universitat de València · Erasmus Bari 2022</div>
-    </div>
+    <div class="tl-item"><div class="tl-year">2025</div><div class="tl-role">Agente de atención al cliente y administrativa</div><div class="tl-place">SegurCaixa Adeslas</div></div>
+    <div class="tl-item"><div class="tl-year">2025</div><div class="tl-role">Dependienta de tienda</div><div class="tl-place">Lefties</div></div>
+    <div class="tl-item"><div class="tl-year">2025</div><div class="tl-role">Grabación de datos ADGG0508</div><div class="tl-place">Grupo S-Tudia.com · 650 horas</div></div>
+    <div class="tl-item"><div class="tl-year">2024</div><div class="tl-role">Promotora Empresa Energética</div><div class="tl-place">From Zero Business</div></div>
+    <div class="tl-item"><div class="tl-year">2024 · Prácticas</div><div class="tl-role">Vivienda Tutelada — Violencia de Género</div><div class="tl-place">Tyrius · Amas de Casa y Consumidores</div></div>
+    <div class="tl-item"><div class="tl-year">2022–2024</div><div class="tl-role">Comercial Fund-raising (Sorteo del Oro)</div><div class="tl-place">Cruz Roja Española</div></div>
+    <div class="tl-item"><div class="tl-year">2023</div><div class="tl-role">Promotora</div><div class="tl-place">Smartbox</div></div>
+    <div class="tl-item"><div class="tl-year">2022 · Prácticas</div><div class="tl-role">Área de inmigración</div><div class="tl-place">APIP-ACAM</div></div>
+    <div class="tl-item"><div class="tl-year">2022</div><div class="tl-role">Atención al cliente</div><div class="tl-place">Marktel</div></div>
+    <div class="tl-item"><div class="tl-year">2020–2025</div><div class="tl-role">Grado en Trabajo Social</div><div class="tl-place">Universitat de València · Erasmus Bari 2022</div></div>
   </div>
-
   <div class="form-section fade-in">
     <h3>Formación complementaria</h3>
     <div class="form-tags">
@@ -695,13 +326,10 @@
       <span class="form-tag">Taller Anti-Rumores</span>
     </div>
   </div>
-
-
 </section>
 
 <div class="divider"></div>
 
-<!-- CONTACTO -->
 <section id="contacto">
   <div class="contact-inner">
     <div class="contact-left fade-in">
@@ -712,56 +340,91 @@
     <div class="contact-right fade-in">
       <a href="tel:+34653658458" class="contact-item">
         <span class="contact-icon">☎</span>
-        <div>
-          <div class="contact-label">Teléfono</div>
-          <div class="contact-value">+34 653 658 458</div>
-        </div>
+        <div><div class="contact-label">Teléfono</div><div class="contact-value">+34 653 658 458</div></div>
       </a>
       <a href="mailto:ccandelalluna@gmail.com" class="contact-item">
         <span class="contact-icon">✉</span>
-        <div>
-          <div class="contact-label">Correo electrónico</div>
-          <div class="contact-value">ccandelalluna@gmail.com</div>
-        </div>
+        <div><div class="contact-label">Correo electrónico</div><div class="contact-value">ccandelalluna@gmail.com</div></div>
       </a>
       <a href="https://www.linkedin.com/in/candela-martín-de-vidales-i-lluna-609003208" target="_blank" class="contact-item">
         <span class="contact-icon">in</span>
-        <div>
-          <div class="contact-label">LinkedIn</div>
-          <div class="contact-value">candela-martín-de-vidales-i-lluna</div>
-        </div>
+        <div><div class="contact-label">LinkedIn</div><div class="contact-value">candela-martín-de-vidales-i-lluna</div></div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <span class="footer-name">Candela Martín de Vidales i Lluna</span>
+  <span class="footer-name" id="footer-trigger">Candela Martín de Vidales i Lluna</span>
   <p>Trabajadora Social · Escritora · Valencia, España · 2025</p>
 </footer>
 
 <script>
-  // Intersection Observer for fade-in animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 80);
-        observer.unobserve(entry.target);
-      }
-    });
+  // FADE IN
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  // CARGAR ESCRITOS
+  let escritos = [];
+  async function cargarEscritos() {
+    try {
+      const res = await fetch('escritos.json');
+      escritos = await res.json();
+    } catch { escritos = []; }
+    renderListas();
+  }
 
-  // Stagger siblings
-  document.querySelectorAll('.escritura-grid, .timeline, .form-tags').forEach(grid => {
-    grid.querySelectorAll('.fade-in').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.08}s`;
+  function renderListas() {
+    const cats = { Poesia: 'Poesía', Relato: 'Relato', Resena: 'Reseña', Articulo: 'Artículo' };
+    Object.entries(cats).forEach(([key, label]) => {
+      const lista = escritos.filter(e => e.cat === label);
+      const el = document.getElementById('lista-' + key);
+      if (!lista.length) {
+        el.innerHTML = '<div class="card-escritos-vacio">Pronto habrá textos aquí.</div>';
+        return;
+      }
+      el.innerHTML = lista.map(e => `
+        <div class="card-escrito-item" onclick="abrirEscrito('${e.id}')">
+          <div class="card-escrito-titulo">${e.titulo}</div>
+          <div class="card-escrito-fecha">${e.fecha}</div>
+        </div>`).join('');
     });
+  }
+
+  // EXPANDIR TARJETA
+  function toggleCard(cat) {
+    document.getElementById('card-' + cat).classList.toggle('open');
+  }
+
+  // MODAL
+  function abrirEscrito(id) {
+    const e = escritos.find(x => x.id === id);
+    if (!e) return;
+    document.getElementById('modal-cat').textContent = e.cat;
+    document.getElementById('modal-titulo').textContent = e.titulo;
+    document.getElementById('modal-fecha').textContent = e.fecha;
+    document.getElementById('modal-contenido').textContent = e.texto;
+    document.getElementById('modal-lectura').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function cerrarModal(ev) {
+    if (ev.target.id === 'modal-lectura') {
+      ev.target.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // ACCESO SECRETO AL ADMIN (5 clics en el nombre del footer)
+  let clicks = 0, t;
+  document.getElementById('footer-trigger').addEventListener('click', () => {
+    clicks++; clearTimeout(t);
+    t = setTimeout(() => clicks = 0, 2000);
+    if (clicks >= 5) { clicks = 0; window.location.href = '/admin/'; }
   });
+
+  cargarEscritos();
 </script>
 </body>
 </html>
