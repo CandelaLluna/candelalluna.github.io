@@ -1,3 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Candela Martín de Vidales i Lluna · Escritura & Trabajo Social</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f5f0e8; --parchment: #ede5d5; --terracotta: #b85c38;
+      --rust: #8c3a1e; --ink: #1c1410; --muted: #7a6e62;
+      --border: rgba(184, 92, 56, 0.25);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--ink); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--terracotta); }
+
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 56px; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 6rem; position: relative; }
+    .hero-left::before { content: ''; position: absolute; top: 15%; left: 3rem; width: 1px; height: 60%; background: var(--border); }
+    .hero-tag { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1.5rem; }
     .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 300; line-height: 1.05; color: var(--ink); margin-bottom: 1.5rem; }
     .hero-name em { font-style: italic; color: var(--terracotta); }
     .hero-desc { font-size: 0.95rem; color: var(--muted); max-width: 360px; line-height: 1.7; margin-bottom: 2.5rem; }
